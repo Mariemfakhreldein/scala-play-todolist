@@ -3,6 +3,24 @@
 # https://www.playframework.com/documentation/latest/ScalaRouting
 # ~~~~
 
-GET     /todo                controllers.ToDoListController.getAll
+GET         /todo                       controllers.ToDoListController.getAll
 
-GET     /todo/:itemId        controllers.ToDoListController.getItemById(itemId: Long)
+GET         /todo/:itemId               controllers.ToDoListController.getItemById(itemId: Long)
+
+
+PUT         /todo/done/:itemId          controllers.ToDoListController.markItemAsDone(itemId: Long)
+
+
+#DELETE      /todo/done                  controllers.ToDoListController.deleteAllDoneItems
+
+
+GET         /user/$id<[1-9]+>           controllers.ToDoListController.testRegexPath(id: Int)
+
+GET         /cookies/add                 controllers.ToDoListController.addCookies()
+GET         /cookies/remove              controllers.ToDoListController.removeCookies()
+
++nocsrf
+POST        /login                       controllers.UserController.login()
+
++nocsrf
+POST        /user/insert                 controllers.UserController.addNewUser()
